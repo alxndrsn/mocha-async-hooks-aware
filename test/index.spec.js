@@ -31,4 +31,8 @@ describe('mocha-async-hooks-aware', () => {
       assert.isUndefined(als.getStore());
     });
   });
+
+  it.skip('should still work', () => {
+    // if it() is overridden in a naive way, this function might get lost
+  });
 });
