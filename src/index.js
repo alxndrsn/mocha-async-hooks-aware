@@ -9,7 +9,7 @@ Object.defineProperties(require('mocha').Runnable.prototype, {
     get: function() {
       return this._outer;
     },
-    set: function (fn) {
+    set: function(fn) {
       if(!fn) return;
 
       if(!fn.length) {
