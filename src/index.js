@@ -19,7 +19,7 @@ Object.defineProperties(require('mocha').Runnable.prototype, {
 
       this._outer = function() {
         return new Promise((resolve, reject) => {
-          fn.call(this, err => console.log('returned:', err) || err ? reject(err) : resolve());
+          fn.call(this, err => err ? reject(err) : resolve());
         });
       };
       this._outer.toString = () => {
