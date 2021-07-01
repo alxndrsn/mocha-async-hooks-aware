@@ -146,4 +146,18 @@ describe('mocha-async-hooks-aware', () => {
       // if it() is overridden in a naive way, it.skip() might get lost
     });
   });
+
+  describe('this.timeout()', () => {
+    it('should still be available without callback', function() {
+      // expect
+      assert.isFunction(this.timeout);
+    });
+
+    it('should still be available with callback', function(done) {
+      // expect
+      assert.isFunction(this.timeout);
+
+      done();
+    });
+  });
 });
