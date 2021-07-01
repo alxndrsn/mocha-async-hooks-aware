@@ -51,6 +51,23 @@ describe('mocha-async-hooks-aware', () => {
     });
   });
 
+  describe('context leakage through beforeEach() callback', () => {
+    let wasCalled;
+    beforeEach(done => {
+      wasCalled = false;
+      als.run('some-value', () => {
+        done();
+      });
+    });
+    afterEach(() => assert.isTrue(wasCalled));
+
+    it('should not see value leaked after done() callback of before()', () => {
+      wasCalled = true;
+
+      // expect
+      assert.isUndefined(als.getStore());
+    });
+  });
 
   describe('it.skip()', () => {
     it.skip('should still work', () => {
