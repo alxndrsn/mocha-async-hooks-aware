@@ -6,13 +6,13 @@ const {
   it,
 } = global;
 
-global.it      = function(title, test) { return it     .call(this, title, cb2promise(test)); };
-global.it.only = function(title, test) { return it.only.call(this, title, cb2promise(test)); }
+global.it      = (title, test) => it     (title, cb2promise(test));
+global.it.only = (title, test) => it.only(title, cb2promise(test));
 
-global.after      = function(fn) { return after     .call(this, cb2promise(fn)); }
-global.afterEach  = function(fn) { return afterEach .call(this, cb2promise(fn)); }
-global.before     = function(fn) { return before    .call(this, cb2promise(fn)); }
-global.beforeEach = function(fn) { return beforeEach.call(this, cb2promise(fn)); }
+global.after      = fn => after     (cb2promise(fn));
+global.afterEach  = fn => afterEach (cb2promise(fn));
+global.before     = fn => before    (cb2promise(fn));
+global.beforeEach = fn => beforeEach(cb2promise(fn));
 
 global.it.skip = it.skip;
 
