@@ -1,5 +1,6 @@
 const {
   after,
+  afterEach,
   before,
   beforeEach,
   it,
@@ -14,6 +15,7 @@ global.it.only = function(title, test) {
 }
 
 global.after      = function(fn) { return after     .call(this, cb2promise(this, fn)); }
+global.afterEach  = function(fn) { return afterEach .call(this, cb2promise(this, fn)); }
 global.before     = function(fn) { return before    .call(this, cb2promise(this, fn)); }
 global.beforeEach = function(fn) { return beforeEach.call(this, cb2promise(this, fn)); }
 

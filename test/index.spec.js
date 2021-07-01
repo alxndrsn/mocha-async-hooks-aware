@@ -104,6 +104,43 @@ describe('mocha-async-hooks-aware', () => {
     });
   });
 
+  describe('context leakage through afterEach() callback', () => {
+    let wasCalled;
+    beforeEach(() => wasCalled = false);
+    afterEach(() => assert.isTrue(wasCalled));
+
+    describe('something that sets up the leak', () => {
+      afterEach(done => {
+        assert.isTrue(wasCalled);
+
+        // when
+        als.run('some-value', () => {
+
+          // expect
+          assert.equal(als.getStore(), 'some-value');
+
+          done();
+        });
+      });
+
+      it('should not have set the store value yet', () => {
+        wasCalled = true;
+
+        // expect
+        assert.isUndefined(als.getStore());
+      });
+    });
+
+    describe('something that executes after the leak', () => {
+      it('should not see value leaked after done() callback of previous describe() block', () => {
+        wasCalled = true;
+
+        // expect
+        assert.isUndefined(als.getStore());
+      });
+    });
+  });
+
   describe('it.skip()', () => {
     it.skip('should still work', () => {
       // if it() is overridden in a naive way, it.skip() might get lost
