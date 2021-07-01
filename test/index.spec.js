@@ -1,5 +1,3 @@
-if(!process.env.MOCHA_NO_ASYNC_PROTECTION) require('../src');
-
 const { AsyncLocalStorage } = require('async_hooks');
 const { assert } = require('chai');
 

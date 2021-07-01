@@ -5,11 +5,15 @@ Extension for [mocha javascript testing library](https://mochajs.org/) to preven
 
 # Use
 
-In your mocha setup:
+Add the dependency, e.g.:
 
-	require('mocha-async-hooks-aware');
+	yarn add -D mocha-async-hooks-aware
 
-It might also be possible to add `--require mocha-async-hooks-aware` to your mocha call.
+Add the following to your mocha config:
+
+	--require mocha-async-hooks-aware
+
+For more info, see https://mochajs.org/#-require-module-r-module
 
 # Development
 

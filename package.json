@@ -8,9 +8,9 @@
   "repository": "git@github.com:alxndrsn/mocha-async-hooks-aware.git",
   "scripts": {
     "test": "yarn test:standard && yarn test:onlys",
-    "test:standard": "mocha test/index.spec.js",
     "test:onlys": "sed -i 's/it(/it.only(/' test/index.spec.js && yarn test:standard; sed -i 's/it\\.only(/it(/' test/index.spec.js",
-    "test:no-protection": "MOCHA_NO_ASYNC_PROTECTION=true yarn test"
+    "test:standard": "     mocha test/*.spec.js --require src/index.js",
+    "test:no-protection": "mocha test/*.spec.js"
   },
   "devDependencies": {
     "chai": "^4.3.4",
