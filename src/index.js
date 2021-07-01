@@ -1,4 +1,4 @@
-const { it } = global;
+const { before, it } = global;
 
 global.it = function(title, test) {
   return it.call(this, title, cb2promise(this, test));
@@ -6,6 +6,10 @@ global.it = function(title, test) {
 global.it.skip = it.skip;
 global.it.only = function(title, test) {
   return it.only.call(this, title, cb2promise(this, test));
+}
+
+global.before = function(fn) {
+  return before.call(this, cb2promise(this, fn));
 }
 
 function cb2promise(that, test) {
