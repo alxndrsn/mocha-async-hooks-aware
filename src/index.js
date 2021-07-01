@@ -23,9 +23,6 @@ function cb2promise(that, fn) {
   if(!fn || !fn.length) return fn;
 
   return () => new Promise((resolve, reject) => {
-    fn.call(that, err => {
-      if(err) return reject(err);
-      else    return resolve();
-    });
+    fn.call(that, err => err ?  reject(err) : resolve());
   });
 }
