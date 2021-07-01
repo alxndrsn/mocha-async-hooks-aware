@@ -5,6 +5,7 @@
   "main": "src/index.js",
   "author": "alxndrsn",
   "license": "MIT",
+  "repository": "git@github.com:alxndrsn/mocha-async-hooks-aware.git",
   "scripts": {
     "test": "yarn test:standard && yarn test:onlys",
     "test:standard": "mocha test/index.spec.js",
