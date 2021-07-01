@@ -7,13 +7,16 @@
   "license": "MIT",
   "repository": "git@github.com:alxndrsn/mocha-async-hooks-aware.git",
   "scripts": {
-    "test": "yarn test:standard && yarn test:onlys",
-    "test:onlys": "sed -i 's/it(/it.only(/' test/index.spec.js && yarn test:standard; sed -i 's/it\\.only(/it(/' test/index.spec.js",
-    "test:standard": "     mocha test/*.spec.js --require src/index.js",
-    "test:no-protection": "mocha test/*.spec.js"
+    "lint": "yarn eslint .",
+    "test": "yarn lint && yarn test:mocha",
+    "test:mocha": "yarn test:mocha:standard && yarn test:mocha:onlys",
+    "test:mocha:onlys": "sed -i 's/it(/it.only(/' test/index.spec.js && yarn test:mocha:standard; sed -i 's/it\\.only(/it(/' test/index.spec.js",
+    "test:mocha:standard": "mocha test/*.spec.js --require src/index.js",
+    "test:no-protection": " mocha test/*.spec.js"
   },
   "devDependencies": {
     "chai": "^4.3.4",
+    "eslint": "^7.29.0",
     "mocha": "^9.0.1"
   },
   "peerDependencies": {
