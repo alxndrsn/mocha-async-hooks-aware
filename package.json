@@ -1,6 +1,6 @@
 {
   "name": "mocha-async-hooks-aware",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Make mocha test framework safe from async context leaking",
   "main": "src/index.js",
   "author": "alxndrsn",
