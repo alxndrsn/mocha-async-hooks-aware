@@ -32,7 +32,9 @@ describe('mocha-async-hooks-aware', () => {
     });
   });
 
-  it.skip('should still work', () => {
-    // if it() is overridden in a naive way, this function might get lost
+  describe('it.skip()', () => {
+    it.skip('should still work', () => {
+      // if it() is overridden in a naive way, it.skip() might get lost
+    });
   });
 });

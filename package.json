@@ -6,7 +6,9 @@
   "author": "alxndrsn",
   "license": "MIT",
   "scripts": {
-    "test": "mocha test/**/*.spec.js",
+    "test": "yarn test:standard && yarn test:onlys",
+    "test:standard": "mocha test/index.spec.js",
+    "test:onlys": "sed -i 's/it(/it.only(/' test/index.spec.js && yarn test:standard; sed -i 's/it\\.only(/it(/' test/index.spec.js",
     "test:no-protection": "MOCHA_NO_ASYNC_PROTECTION=true yarn test"
   },
   "devDependencies": {
