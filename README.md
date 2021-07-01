@@ -1,6 +1,8 @@
 mocha-async-hooks-aware
 =======================
 
+[![build status](https://github.com/alxndrsn/mocha-async-hooks-aware/actions/workflows/test.yml/badge.svg)](https://github.com/alxndrsn/mocha-async-hooks-aware/actions)
+
 Extension for [mocha javascript testing library](https://mochajs.org/) to prevent async context leakage between tests.
 
 # Use
